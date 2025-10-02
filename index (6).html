@@ -1,0 +1,487 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Biodata — Ivana Nur Safina (Dunia Fantasi)</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@300;600;800&display=swap');
+    :root{--bg1:#0f172a;--bg2:#2b1a3b;--accent:#9b6bff;--glow:#ff9bd6}
+    *{box-sizing:border-box}
+    body{margin:0;min-height:100vh;background:radial-gradient(circle at 10% 10%, #1b1030 0%, var(--bg1) 30%, var(--bg2) 100%);color:#f3eef8;font-family:Montserrat,system-ui,Arial}
+
+    /* enchanted sky */
+    .sky{position:fixed;inset:0;pointer-events:none;overflow:hidden}
+    .star{position:absolute;width:4px;height:4px;background:#fff;border-radius:50%;opacity:0.9;box-shadow:0 0 8px #fff}
+    .glow-orb{position:absolute;width:140px;height:140px;border-radius:50%;filter:blur(28px);opacity:0.12}
+
+    .container{position:relative;z-index:2;max-width:980px;margin:40px auto;padding:28px;background:linear-gradient(180deg,rgba(255,255,255,0.03),rgba(255,255,255,0.01));border-radius:14px;border:1px solid rgba(255,255,255,0.04);box-shadow:0 8px 40px rgba(0,0,0,0.6)}
+    header{text-align:center;padding:14px}
+    header h1{font-family:'Great Vibes',cursive;font-size:46px;margin:6px 0;color:#ffd1f0;text-shadow:0 6px 18px rgba(155,107,255,0.18)}
+    header p.lead{margin:0;color:#d9c9f2}
+
+    .profile{display:flex;gap:18px;align-items:center;justify-content:center;margin-top:8px}
+    .pf-pic{width:160px;height:160px;border-radius:18px;background:linear-gradient(135deg,#ffffff10,#ffd9f080);display:flex;align-items:center;justify-content:center;border:4px solid rgba(255,255,255,0.06);backdrop-filter:blur(4px)}
+    .pf-pic img{width:140px;height:140px;border-radius:14px;object-fit:cover}
+    .pf-meta{max-width:560px}
+    .pf-meta h2{margin:0;font-size:20px;color:#fff}
+    .pf-meta .sub{color:#e7d8ff}
+
+    .grid{display:grid;grid-template-columns:1fr 360px;gap:18px;margin-top:20px}
+    .card{background:linear-gradient(180deg,rgba(255,255,255,0.02), rgba(255,255,255,0.01));border-radius:12px;padding:12px;border:1px solid rgba(255,255,255,0.03)}
+    h3{margin:6px 0 8px 0;color:#ffd9f0}
+    p{color:#e9e1f8}
+
+    table{width:100%;border-collapse:collapse;margin-top:8px}
+    th,td{padding:8px;border-bottom:1px dashed rgba(255,255,255,0.04);text-align:left;color:#f5eeff}
+    th{color:#ffd3f1}
+
+    .charts{display:flex;flex-direction:column;gap:12px}
+    canvas{background:transparent;border-radius:8px}
+
+    footer{margin-top:20px;text-align:center;color:#d5c7f3}
+    .lang-selector{position:absolute;top:20px;right:20px;z-index:10;display:flex;align-items:center;gap:8px;}
+    .lang-selector select{background:rgba(255,255,255,0.1);color:#fff;border:1px solid rgba(255,255,255,0.2);padding:6px;border-radius:6px;appearance:none;cursor:pointer;}
+    .lang-selector select:focus{outline:none;border-color:#ffd1f8;}
+
+    @media (max-width:900px){.grid{grid-template-columns:1fr}.pf-meta{max-width:320px}}
+  </style>
+</head>
+<body>
+  <div class="sky" id="sky"></div>
+  <div class="lang-selector">
+    <select id="lang-select">
+      <option value="id">Bahasa Indonesia</option>
+      <option value="en">English</option>
+      <option value="jv">Basa Jawa</option>
+      <option value="ar">العربية</option>
+    </select>
+  </div>
+
+  <div class="container">
+    <header>
+      <h1 data-lang-key="title">Selamat Datang di Dunia Ivana</h1>
+      <p class="lead" data-lang-key="subtitle">Ivana Nur Safina • Pengusaha Muda dalam proses • SMK Ma'arif NU Tirto</p>
+    </header>
+
+    <div class="profile">
+      <div class="pf-pic" id="pf-pic">
+        <img src="pinaa.jpeg" alt="Foto Ivana">
+      </div>
+      <div class="pf-meta">
+        <h2>Ivana Nur Safina</h2>
+        <div class="sub" data-lang-key="birth-date">Pekalongan — 15 Juni 2009</div>
+        <p style="margin-top:8px">
+          <span data-lang-key="address">Alamat</span>: Desa Werdi Dukuh Kludan, Kecamatan Wonokerto, Kabupaten Pekalongan, Jawa Tengah<br>
+          <span data-lang-key="email">Email</span>: sapinaipana@gmail.com • <span data-lang-key="tel">Tel</span>: 089630608498
+        </p>
+      </div>
+    </div>
+
+    <div class="grid">
+      <div>
+        <div class="card">
+          <h3 data-lang-key="education-title">Data Pendidikan</h3>
+          <p>
+            <strong data-lang-key="tk">TK</strong>: TK RA MUSLIMAT ROWOYOSO<br>
+            <strong data-lang-key="sd">SD</strong>: SD 01 WERDI<br>
+            <strong data-lang-key="smp">SMP</strong>: SMP N 02 WONOKERTO<br>
+            <strong data-lang-key="smk">SMK</strong>: SMK Ma’arif NU Tirto — Teknik Komputer & Jaringan (TKJ)
+          </p>
+        </div>
+
+        <div class="card" style="margin-top:12px">
+          <h3 data-lang-key="hobbies-skills-title">Hobi & Keahlian</h3>
+          <p>
+            <strong data-lang-key="hobbies">Hobi</strong>: memasak, menulis cerita, bermain game, menonton film<br>
+            <strong data-lang-key="skills">Keahlian</strong>: dasar-dasar jaringan komputer, kreativitas desain
+          </p>
+          <div class="charts">
+            <canvas id="pieHobi" width="400" height="240"></canvas>
+            <canvas id="barSkill" width="400" height="240"></canvas>
+          </div>
+        </div>
+
+        <div class="card" style="margin-top:12px">
+          <h3 data-lang-key="goals-title">Cita-cita & Motivasi</h3>
+          <p>
+            <strong data-lang-key="goal">Cita-cita</strong>: Pengusaha Muda
+          </p>
+          <p data-lang-key="motto">
+            <strong data-lang-key="motto-text">Motto</strong>: "Bahagia itu sederhana, cukup syukur sama apa yang ada"
+            <br>
+            <span class="motto-jawa">Bahagia kui sederhana, cukup bersyukur karo opo sing mbok duweni</span><br>
+            <span class="motto-arabic">السعادة بسيطة، فقط كن شاكراً لما لديك</span><br>
+            <span class="motto-english">Happiness is simple, just be grateful for what you have</span>
+          </p>
+        </div>
+
+        <div class="card" style="margin-top:12px">
+          <h3 data-lang-key="achievements-title">Prestasi</h3>
+          <ul>
+            <li data-lang-key="achievement1">SD: Juara 2 lomba nari</li>
+            <li data-lang-key="achievement2">SD: Juara 3 debat Bahasa Jawa</li>
+          </ul>
+        </div>
+      </div>
+
+      <div>
+        <div class="card">
+          <h3 data-lang-key="weekly-activities-title">Aktivitas Mingguan</h3>
+          <table>
+            <tr><th data-lang-key="time">Waktu</th><th data-lang-key="activity">Kegiatan</th></tr>
+            <tr><td>05.00</td><td data-lang-key="activity1">Bangun tidur</td></tr>
+            <tr><td>07.00 - 15.00</td><td data-lang-key="activity2">Sekolah</td></tr>
+            <tr><td>16.00</td><td data-lang-key="activity3">Makan</td></tr>
+            <tr><td>17.00 - 22.15</td><td data-lang-key="activity4">Mengerjakan tugas & aktivitas bermanfaat</td></tr>
+            <tr><td>22.30</td><td data-lang-key="activity5">Tidur</td></tr>
+          </table>
+        </div>
+
+        <div class="card" style="margin-top:12px">
+          <h3 data-lang-key="history-title">Sejarah Singkat</h3>
+          <p data-lang-key="history-content">Saya lahir di Pekalongan pada 15 Juni 2009. Sejak kecil tinggal bersama keluarga di Werdi dan tumbuh dengan cinta pada cerita dan memasak. Pengalaman sekolah dan lomba membuat saya percaya diri melangkah menjadi pengusaha muda kelak.</p>
+        </div>
+
+        <div class="card" style="margin-top:12px">
+          <h3 data-lang-key="contact-notes-title">Kontak & Catatan</h3>
+          <p data-lang-key="contact-info">Email: sapinaipana@gmail.com<br>Tel: 089630608498</p>
+          <p style="font-size:13px;opacity:0.9" data-lang-key="note">Ganti foto profil dengan mengunggah foto dan mengganti atribut <code>&lt;img src="..."&gt;</code>.</p>
+        </div>
+        </div>
+<body>
+    <div class="container">
+        <h1>Kelebihan dalam Memasak</h1>
+        <p>SAYA PINA MEMILIKI BEBERAPA KELEBIHAN DALAM DUNIA MEMASAK YANG MEMBUAT SAYA SEMAKIN SEMANGAT BELAJAR DAN BERKREASI:</p>
+        
+        <ul>
+            <li>
+                <strong>KREATIF:</strong> Mencoba resep baru dan menambahkan berbagai topping seperti keju, sosis, dan mie agar topoqi semakin nikmat.
+            </li>
+            <li>
+                <strong>TELATEN:</strong> Sabar memperhatikan tekstur rice cake agar kenyal serta bumbu meresap sempurna.
+            </li>
+            <li>
+                <strong>INOVATIF:</strong> Mengolah bahan sederhana menjadi hidangan khas Korea yang spesial.
+            </li>
+            <li>
+                <strong>PENYAJIAN INDAH:</strong> Mampu menyajikan topoqi dengan tampilan menarik sehingga menggugah selera.
+            </li>
+        </ul>
+
+        <hr>
+
+        <h2>Resep Topoqi (Tteokbokki)</h2>
+        <p>Topoqi adalah hidangan khas Korea yang terbuat dari kue beras kenyal, dimasak dengan saus pedas manis gurih, dan sangat menggugah selera.</p>
+
+        <h3>Bahan-bahan:</h3>
+        <ul class="recipe-list">
+            <li>200 gr <strong>rice cake (tteok)</strong></li>
+            <li>2 sdm <strong>gochujang</strong> (pasta cabai Korea)</li>
+            <li>1 sdm saus cabai (opsional)</li>
+            <li>2 sdm kecap manis</li>
+            <li>2 siung <strong>bawang putih</strong>, cincang</li>
+            <li>1 batang <strong>daun bawang</strong>, iris serong</li>
+            <li>3 butir bakso ikan / <strong>fish cake</strong>, iris tipis</li>
+            <li>500 ml <strong>air atau kaldu</strong></li>
+            <li>Gula &amp; garam secukupnya</li>
+            <li><strong>Topping:</strong> keju, telur rebus, sosis (sesuai selera)</li>
+        </ul>
+
+        <h3>Langkah-langkah:</h3>
+        <ol class="recipe-list">
+            <li>Tumis bawang putih hingga harum.</li>
+            <li>Masukkan gochujang, saus cabai, kecap, gula, dan garam, lalu aduk rata.</li>
+            <li>Tambahkan air atau kaldu, masak hingga mendidih.</li>
+            <li>Masukkan rice cake dan fish cake, aduk perlahan sampai bumbu meresap.</li>
+            <li>Tambahkan daun bawang dan topping sesuai selera.</li>
+            <li>Masak hingga kuah mengental, sajikan hangat.</li>
+        </ol>
+
+        <hr>
+
+        <h2>Hasil Karya #1 — Topoqi (Tteokbokki)</h2>
+        <div class="result">
+            <p><strong>Topoqi ala Pina</strong>, dengan rasa pedas manis gurih, tekstur rice cake kenyal, ditambah topping keju lumer dan telur rebus yang membuatnya semakin istimewa. 🍲✨</p>
+            <img src="napina.jpeg" alt="Foto Ivana">
+        </div>
+    </div>
+</body>
+</html>
+      </div>
+    </div>
+
+    <footer>
+      <p data-lang-key="footer-text">&copy; Ivana Nur Safina • Dunia Fantasi • Dibuat dengan HTML & Chart.js</p>
+    </footer>
+  </div>
+
+  <script>
+    // create twinkling stars & glowing orbs
+    const sky = document.getElementById('sky');
+    for (let i = 0; i < 60; i++) {
+      const s = document.createElement('div');
+      s.className = 'star';
+      s.style.left = Math.random() * 100 + '%';
+      s.style.top = Math.random() * 100 + '%';
+      s.style.opacity = 0.6 + Math.random() * 0.6;
+      s.style.transform = 'scale(' + (0.4 + Math.random() * 1.2) + ')';
+      sky.appendChild(s);
+    }
+    // orbs
+    const orb1 = document.createElement('div'); orb1.className = 'glow-orb'; orb1.style.background = 'radial-gradient(circle,#ff9bd6, transparent 40%)'; orb1.style.left = '6%'; orb1.style.top = '8%'; sky.appendChild(orb1);
+    const orb2 = document.createElement('div'); orb2.className = 'glow-orb'; orb2.style.background = 'radial-gradient(circle,#9b6bff, transparent 40%)'; orb2.style.right = '6%'; orb2.style.top = '18%'; sky.appendChild(orb2);
+
+    // floating tiny sparkles
+    setInterval(() => {
+      const e = document.createElement('div'); e.className = 'star'; e.style.left = Math.random() * 100 + '%'; e.style.top = '-2%'; e.style.width = '6px'; e.style.height = '6px'; e.style.opacity = 1; sky.appendChild(e);
+      e.animate([{ transform: 'translateY(0)', opacity: 1 }, { transform: 'translateY(110vh)', opacity: 0 }], { duration: 6000 + Math.random() * 6000 }).onfinish = () => e.remove();
+    }, 350);
+
+    const translations = {
+      'id': {
+        'title': 'Selamat Datang di Dunia Ivana',
+        'subtitle': 'Ivana Nur Safina • Pengusaha Muda dalam proses • SMK Ma\'arif NU Tirto',
+        'birth-date': 'Pekalongan — 15 Juni 2009',
+        'address': 'Alamat',
+        'email': 'Email',
+        'tel': 'Tel',
+        'education-title': 'Data Pendidikan',
+        'tk': 'TK',
+        'sd': 'SD',
+        'smp': 'SMP',
+        'smk': 'SMK',
+        'hobbies-skills-title': 'Hobi & Keahlian',
+        'hobbies': 'Hobi',
+        'skills': 'Keahlian',
+        'chart-hobbies-title': ['Memasak', 'Menulis cerita', 'Bermain game', 'Menonton film'],
+        'chart-skills-title': ['Jaringan Komputer', 'Kreativitas Desain'],
+        'chart-score-label': 'Skor (1-10)',
+        'goals-title': 'Cita-cita & Motivasi',
+        'goal': 'Cita-cita',
+        'motto-text': 'Motto',
+        'motto': '"Bahagia itu sederhana, cukup syukur sama apa yang ada"',
+        'achievements-title': 'Prestasi',
+        'achievement1': 'SD: Juara 2 lomba nari',
+        'achievement2': 'SD: Juara 3 debat Bahasa Jawa',
+        'weekly-activities-title': 'Aktivitas Mingguan',
+        'time': 'Waktu',
+        'activity': 'Kegiatan',
+        'activity1': 'Bangun tidur',
+        'activity2': 'Sekolah',
+        'activity3': 'Makan',
+        'activity4': 'Mengerjakan tugas & aktivitas bermanfaat',
+        'activity5': 'Tidur',
+        'history-title': 'Sejarah Singkat',
+        'history-content': 'Saya lahir di Pekalongan pada 15 Juni 2009. Sejak kecil tinggal bersama keluarga di Werdi dan tumbuh dengan cinta pada cerita dan memasak. Pengalaman sekolah dan lomba membuat saya percaya diri melangkah menjadi pengusaha muda kelak.',
+        'contact-notes-title': 'Kontak & Catatan',
+        'contact-info': 'Email: sapinaipana@gmail.com<br>Tel: 089630608498',
+        'note': 'Ganti foto profil dengan mengunggah foto dan mengganti atribut <code>&lt;img src="..."&gt;</code>.',
+        'footer-text': '&copy; Ivana Nur Safina • Dunia Fantasi • Dibuat dengan HTML & Chart.js',
+      },
+      'en': {
+        'title': 'Welcome to Ivana\'s World',
+        'subtitle': 'Ivana Nur Safina • Aspiring Young Entrepreneur • SMK Ma\'arif NU Tirto',
+        'birth-date': 'Pekalongan — June 15, 2009',
+        'address': 'Address',
+        'email': 'Email',
+        'tel': 'Phone',
+        'education-title': 'Education',
+        'tk': 'Kindergarten',
+        'sd': 'Elementary School',
+        'smp': 'Junior High School',
+        'smk': 'Vocational High School',
+        'hobbies-skills-title': 'Hobbies & Skills',
+        'hobbies': 'Hobbies',
+        'skills': 'Skills',
+        'chart-hobbies-title': ['Cooking', 'Writing stories', 'Playing games', 'Watching movies'],
+        'chart-skills-title': ['Computer Networking', 'Design Creativity'],
+        'chart-score-label': 'Score (1-10)',
+        'goals-title': 'Goals & Motivation',
+        'goal': 'Goal',
+        'motto-text': 'Motto',
+        'motto': '"Happiness is simple, just be grateful for what you have"',
+        'achievements-title': 'Achievements',
+        'achievement1': 'Elementary School: 2nd place in dancing competition',
+        'achievement2': 'Elementary School: 3rd place in Javanese debate',
+        'weekly-activities-title': 'Weekly Activities',
+        'time': 'Time',
+        'activity': 'Activity',
+        'activity1': 'Wake up',
+        'activity2': 'School',
+        'activity3': 'Eat',
+        'activity4': 'Doing homework & useful activities',
+        'activity5': 'Sleep',
+        'history-title': 'Short History',
+        'history-content': 'I was born in Pekalongan on June 15, 2009. I have lived with my family in Werdi since childhood and grew up with a love for stories and cooking. My school and competition experiences have given me the confidence to become a young entrepreneur in the future.',
+        'contact-notes-title': 'Contact & Notes',
+        'contact-info': 'Email: sapinaipana@gmail.com<br>Phone: 089630608498',
+        'note': 'Change profile photo by uploading a photo and replacing the <code>&lt;img src="..."&gt;</code> attribute.',
+        'footer-text': '&copy; Ivana Nur Safina • Fantasy World • Created with HTML & Chart.js',
+      },
+      'jv': {
+        'title': 'Sugeng Rawuh ing Duniane Ivana',
+        'subtitle': 'Ivana Nur Safina • Pengusaha Anom ing proses • SMK Ma\'arif NU Tirto',
+        'birth-date': 'Pekalongan — 15 Juni 2009',
+        'address': 'Alamat',
+        'email': 'Email',
+        'tel': 'Telp',
+        'education-title': 'Data Pawiyatan',
+        'tk': 'TK',
+        'sd': 'SD',
+        'smp': 'SMP',
+        'smk': 'SMK',
+        'hobbies-skills-title': 'Hobi lan Keterampilan',
+        'hobbies': 'Hobi',
+        'skills': 'Keterampilan',
+        'chart-hobbies-title': ['Masak', 'Nulis cerito', 'Dolanan game', 'Nonton film'],
+        'chart-skills-title': ['Jaringan Komputer', 'Kreativitas Desain'],
+        'chart-score-label': 'Skor (1-10)',
+        'goals-title': 'Gegayuhan lan Motivasi',
+        'goal': 'Gegayuhan',
+        'motto-text': 'Motto',
+        'motto': '"Bahagia kui sederhana, cukup bersyukur karo opo sing mbok duweni"',
+        'achievements-title': 'Prestasi',
+        'achievement1': 'SD: Juara 2 lomba nari',
+        'achievement2': 'SD: Juara 3 debat Basa Jawa',
+        'weekly-activities-title': 'Kegiatan Mingguan',
+        'time': 'Wektu',
+        'activity': 'Kegiatan',
+        'activity1': 'Tangi turu',
+        'activity2': 'Sekolah',
+        'activity3': 'Mangan',
+        'activity4': 'Nggarap tugas lan aktivitas sing migunani',
+        'activity5': 'Turu',
+        'history-title': 'Sejarah Ringkes',
+        'history-content': 'Kula lair ing Pekalongan tanggal 15 Juni 2009. Wiwit cilik, kula manggon karo kulawarga ing Werdi lan tuwuh karo tresna marang cerita lan masak. Pengalaman sekolah lan lomba ndadekke kula yakin lan percaya dhiri dadi pengusaha anom mbesuk.',
+        'contact-notes-title': 'Kontak lan Cathetan',
+        'contact-info': 'Email: sapinaipana@gmail.com<br>Telp: 089630608498',
+        'note': 'Ganti foto profil kanthi ngunggah foto lan ngganti atribut <code>&lt;img src="..."&gt;</code>.',
+        'footer-text': '&copy; Ivana Nur Safina • Dunyo Fantasi • Digawe nganggo HTML & Chart.js',
+      },
+      'ar': {
+        'title': 'مرحباً بكم في عالم إيفانا',
+        'subtitle': 'إيفانا نور صافينا • رائدة أعمال شابة طموحة • مدرسة SMK Ma\'arif NU Tirto',
+        'birth-date': 'بيكالونجان — 15 يونيو 2009',
+        'address': 'العنوان',
+        'email': 'البريد الإلكتروني',
+        'tel': 'الهاتف',
+        'education-title': 'بيانات التعليم',
+        'tk': 'الروضة',
+        'sd': 'المدرسة الابتدائية',
+        'smp': 'المدرسة الإعدادية',
+        'smk': 'المدرسة الثانوية المهنية',
+        'hobbies-skills-title': 'الهوايات والمهارات',
+        'hobbies': 'الهوايات',
+        'skills': 'المهارات',
+        'chart-hobbies-title': ['الطبخ', 'كتابة القصص', 'لعب الألعاب', 'مشاهدة الأفلام'],
+        'chart-skills-title': ['شبكات الكمبيوتر', 'الإبداع في التصميم'],
+        'chart-score-label': 'الدرجة (1-10)',
+        'goals-title': 'الطموحات والتحفيز',
+        'goal': 'الطموح',
+        'motto-text': 'الشعار',
+        'motto': '"السعادة بسيطة، فقط كن شاكراً لما لديك"',
+        'achievements-title': 'الإنجازات',
+        'achievement1': 'المدرسة الابتدائية: المركز الثاني في مسابقة الرقص',
+        'achievement2': 'المدرسة الابتدائية: المركز الثالث في مناظرة اللغة الجاوية',
+        'weekly-activities-title': 'الأنشطة الأسبوعية',
+        'time': 'الوقت',
+        'activity': 'النشاط',
+        'activity1': 'الاستيقاظ من النوم',
+        'activity2': 'المدرسة',
+        'activity3': 'تناول الطعام',
+        'activity4': 'أداء الواجبات المنزلية والأنشطة المفيدة',
+        'activity5': 'النوم',
+        'history-title': 'تاريخ موجز',
+        'history-content': 'ولدت في بيكالونجان في 15 يونيو 2009. عشت مع عائلتي في ويردي منذ الطفولة ونشأت مع حب للقصص والطبخ. خبراتي في المدرسة والمسابقات منحتني الثقة للمضي قدماً لأصبح رائدة أعمال شابة في المستقبل.',
+        'contact-notes-title': 'الاتصال والملاحظات',
+        'contact-info': 'البريد الإلكتروني: sapinaipana@gmail.com<br>الهاتف: 089630608498',
+        'note': 'غيّر صورة الملف الشخصي بتحميل صورة جديدة واستبدال سمة <code>&lt;img src="..."&gt;</code>.',
+        'footer-text': '&copy; إيفانا نور صافينا • عالم الخيال • تم الإنشاء باستخدام HTML و Chart.js',
+      }
+    };
+
+    let pieChart, barChart;
+
+    const updateLanguage = (lang) => {
+      document.body.style.direction = (lang === 'ar') ? 'rtl' : 'ltr';
+      document.body.lang = lang;
+      
+      const elements = document.querySelectorAll('[data-lang-key]');
+      elements.forEach(el => {
+        const key = el.getAttribute('data-lang-key');
+        if (translations[lang][key]) {
+          el.innerHTML = translations[lang][key];
+        }
+      });
+      
+      updateCharts(lang);
+    };
+
+    const updateCharts = (lang) => {
+      const hobbiesLabels = translations[lang]['chart-hobbies-title'];
+      const skillsLabels = translations[lang]['chart-skills-title'];
+      const scoreLabel = translations[lang]['chart-score-label'];
+
+      if (pieChart) {
+        pieChart.data.labels = hobbiesLabels;
+        pieChart.update();
+      } else {
+        pieChart = new Chart(document.getElementById('pieHobi'), {
+          type: 'pie',
+          data: {
+            labels: hobbiesLabels,
+            datasets: [{
+              data: [30, 30, 20, 20],
+              backgroundColor: ['#ffd1f8', '#ffb3f0', '#d6b3ff', '#b3c7ff']
+            }]
+          },
+          options: {
+            plugins: {
+              legend: {
+                position: 'bottom'
+              }
+            }
+          }
+        });
+      }
+
+      if (barChart) {
+        barChart.data.labels = skillsLabels;
+        barChart.data.datasets[0].label = scoreLabel;
+        barChart.update();
+      } else {
+        barChart = new Chart(document.getElementById('barSkill'), {
+          type: 'bar',
+          data: {
+            labels: skillsLabels,
+            datasets: [{
+              label: scoreLabel,
+              data: [7, 8],
+              backgroundColor: ['#9b6bff', '#ff9bd6']
+            }]
+          },
+          options: {
+            scales: {
+              y: {
+                beginAtZero: true,
+                max: 10
+              }
+            }
+          }
+        });
+      }
+    };
+
+    document.getElementById('lang-select').addEventListener('change', (event) => {
+      updateLanguage(event.target.value);
+    });
+
+    // Initial load
+    window.onload = () => {
+        updateLanguage('id');
+    }
+  </script>
+</body>
+</html>
